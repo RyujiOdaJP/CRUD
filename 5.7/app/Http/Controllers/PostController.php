@@ -15,6 +15,7 @@ class PostController extends Controller
     public function index()
     {
         $posts = Post::latest()->get();
+        \Debugbar::info($posts);
         return view('posts.index', ['posts' => $posts]);
     }
 
