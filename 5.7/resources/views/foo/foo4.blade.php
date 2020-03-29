@@ -1,5 +1,5 @@
 <!-- individual template -->
-@extends('../layouts/app')
+@extends('../layouts/my')
 @section('title', $title)
 @section('content')
     {{-- 個別ベージの内容 --}}
