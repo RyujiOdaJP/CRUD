@@ -18,6 +18,11 @@ class CreatePostsTable extends Migration
             $table->string('title');
             $table->text('body');
             $table->timestamps();
+            //外部キー用のuser_idカラムをpostsテーブルに追加します。
+            $table->integer('user_id')->unsigned()->default(1);
+            $table->foreign('user_id')
+                  ->references('id')->on('users')
+                  ->onDelete('cascade');
         });
     }
 
