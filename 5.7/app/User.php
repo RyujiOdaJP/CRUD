@@ -45,6 +45,6 @@ class User extends Authenticatable
     public function posts() // 複数形
     {
         // 記事を新しい順で取得する
-        return $this->hasMany('App\Post')->latest();
+        return $this->hasMany('app\Post')->latest();
     }
 }
