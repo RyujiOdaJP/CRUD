@@ -1,4 +1,7 @@
-@extends('layouts.app')
+@php
+    $title = __('send_email');
+@endphp
+@extends('layouts.my')
 
 @section('content')
 <div class="container">
