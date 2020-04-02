@@ -92,4 +92,9 @@ class PostController extends Controller
         $post->delete();
         return redirect('posts');
     }
+
+    public function __construct()
+    {
+        $this->Middleware('auth')->except(['index','show']);
+    }
 }

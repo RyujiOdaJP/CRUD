@@ -4,6 +4,7 @@ namespace app\Http\Controllers;
 
 use Illuminate\Http\Request;
 use app\User;
+use GuzzleHttp\Middleware;
 
 class UserController extends Controller
 {
@@ -92,5 +93,10 @@ class UserController extends Controller
     {
         $user->delete();
         return redirect('users');
+    }
+
+    public function __construct()
+    {
+        $this->Middleware('auth')->except(['index','show']);
     }
 }
