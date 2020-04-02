@@ -2,6 +2,7 @@
 
 namespace app;
 
+use app\Notifications\TextPasswordReset;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -46,5 +47,10 @@ class User extends Authenticatable
     {
         // 記事を新しい順で取得する
         return $this->hasMany('app\Post')->latest();
+    }
+
+    public function sendPasswordResetNotification($token)
+    {
+        $this->notify(new TextPasswordReset($token));
     }
 }
